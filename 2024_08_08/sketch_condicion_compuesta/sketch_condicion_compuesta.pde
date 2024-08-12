@@ -29,6 +29,8 @@ void draw () {
   
   if (num > 0 && direccion < 0) {
     num --;
+  } else {
+    direccion = +1;
   }
  
 }
