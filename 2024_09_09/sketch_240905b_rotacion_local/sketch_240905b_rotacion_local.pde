@@ -6,4 +6,6 @@ void setup () {
 void draw () {
   translate(200, 200);  
   t.Draw();
+  t.Rotate(-radians(0.5));
+  t.RotateLocal(radians(1));
 }
