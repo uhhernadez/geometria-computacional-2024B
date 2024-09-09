@@ -10,9 +10,8 @@ void draw () {
   circle(point.x, point.y, 30);
   point = Rotate(point, radians(1));
   t.Draw();
-  t.Translate(3,3);
-  t.Rotate(-radians(1));
-  
+  t.Translate(10, 0);
+  t.Rotate(-radians(1));  
 }
 PVector Rotate(PVector p, float theta) {
   float x, y;
