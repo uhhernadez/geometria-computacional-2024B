@@ -1,10 +1,11 @@
 class Tyre {
   PVector [] points;
   PVector center;
+  float r;
   
   Tyre() {
     points = new PVector[8];
-    float r = 30;
+    r = 30;
     
     for (int i = 0; i < 8; i++) {
       float theta = (float)i * (PI/4.0);
@@ -16,12 +17,31 @@ class Tyre {
     center = new PVector (0, 0);
   }
   
+  Tyre(float radius) {
+    points = new PVector[8];
+    r = radius;
+    
+    for (int i = 0; i < 8; i++) {
+      float theta = (float)i * (PI/4.0);
+      
+      float x = r * cos (theta);
+      float y = r * sin (theta);
+      points[i] = new PVector(x,y);
+    }
+    center = new PVector (0, 0);
+  }
+  
+  
   void Draw () {
     fill(255);
-    Line(center,center.add(points[0]));
-    
+    for (PVector p:points) {
+      PVector radius = PVector.add(center, p);
+      Line(center,radius);
+    }
     fill(220,10,0);
     circle(center.x, center.y, 10);
+    noFill();
+    circle(center.x, center.y, 2 * r);
   }
   
   void Line (PVector a, PVector b) {
@@ -42,10 +62,10 @@ class Tyre {
     center = Rotate(center,theta);
   }
   
-  void RotateLocal(float theta) {
-    points[0] = Rotate(points[0], theta);
-    points[1] = Rotate(points[1], theta);
-    points[2] = Rotate(points[2], theta);
+  void RotateLocal(float theta)  {
+    for (int i = 0; i < 8; i++) {
+      points[i] = Rotate(points[i], theta);
+    }
   }
    
   PVector Rotate(PVector p, float theta) {
