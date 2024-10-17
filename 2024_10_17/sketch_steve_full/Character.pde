@@ -18,6 +18,7 @@ class Character {
     left_arm = new Piece (4, 4, 12, 0, 0,-6);
     f = 0.0;
     pos = new PVector();
+    theta = 0;
   }
 
   void Draw () {

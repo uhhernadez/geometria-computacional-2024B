@@ -17,9 +17,9 @@ void draw () {
           0, 0, 25,
           0, 0, -1);
   float fov = radians(60);
-  //perspective(fov, float(width)/float(height), 1, 10*t);  
+  perspective(fov, float(width)/float(height), 1, 10*t);  
   //println(t);        
-  ortho(-50, 50, -50, 50);        
+  //ortho(-50, 50, -50, 50);        
   if (keyPressed) {
     if (key == 'w' || key == 'W') {
       steve.pos.add(0, 1, 0);
