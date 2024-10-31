@@ -26,8 +26,10 @@ class Character {
     float A = radians(40);
     float rla = A*cos(2*PI*f*t);
     float rra = A*sin(2*PI*f*t-PI/2.0);
+  
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
+    rotate(theta);
     // Head
     pushMatrix();
       translate(0, 0, 24);
@@ -65,7 +67,6 @@ class Character {
       left_arm.Draw();
     popMatrix();
     popMatrix();
-
   }
 
 }
