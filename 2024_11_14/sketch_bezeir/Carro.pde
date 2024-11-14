@@ -22,10 +22,13 @@ class Carro {
       scale(scale);
       pushMatrix();
       cuerpo.Dibujar();
+      cuerpo.pos.y = cuerpo.pos.y + 1 * cos(2*PI*millis()/1000);
       cabeza.Dibujar();
+      cabeza.pos.y = cabeza.pos.y + 0.5 * cos(2*PI*millis()/1000);
       llanta1.Dibujar();
-      llanta1.theta+=radians(1);
+      llanta1.theta+=radians(5);
       llanta2.Dibujar();
+      llanta2.theta+=radians(5);
       popMatrix();
     popMatrix();
   }
