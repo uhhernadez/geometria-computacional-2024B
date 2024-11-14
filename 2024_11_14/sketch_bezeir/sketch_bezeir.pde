@@ -1,39 +1,26 @@
-BezierLineal lineal;
-BezierCuadratica cuadratica;
 BezierCubica cubica;
-
-PVector centro;
-float radio;
+Pieza llanta1, llanta2, cuerpo, cabeza;
 
 void setup () {
   size (500, 500);
-  lineal = new BezierLineal(30, 40, 300, 70);
-  cuadratica = new BezierCuadratica(50, 100, 10, 130, 100, 100);
   cubica = new BezierCubica(10, 200,
                             15, 80,
                             400, 350,
                             290, 360);
-    centro = new PVector(150, 200);
-    radio = 50;                            
+  String personaje = "girl";                            
+  llanta1 = new Pieza("sprites/"+personaje +"/wheel_1.png"
+                     , 1, 0 , 0);
+  llanta2 = new Pieza("sprites/"+personaje +"/wheel_2.png"
+                     , 1, 0 , 0);
+  cuerpo = new Pieza("sprites/"+personaje +"/body.png"
+                     , 1, 0 , 0);
+  cabeza = new Pieza("sprites/"+personaje +"/head.png"
+                     , 1, 0 , 0);                                     
+                    
 }
 
 void draw () {
   background(210);
-  //lineal.Draw();
-  //cuadratica.Draw();
-  cubica.Draw();
-  
-  PVector cursor = new PVector(mouseX, mouseY);
-  circle(cursor.x, cursor.y, 10);
-  float d = PVector.dist(centro,cursor);
-  if (d < radio) {
-    fill(255, 0, 0);
-    if (mousePressed) {
-      centro.set(mouseX, mouseY);
-    }
-  } else {
-    fill(200, 200, 200);
-  }
-  circle(centro.x,centro.y,2*radio);
- 
+  //cubica.Draw();
+  llanta.Dibujar();
 }
