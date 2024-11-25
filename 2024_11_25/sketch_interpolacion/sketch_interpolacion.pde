@@ -1,9 +1,11 @@
+import processing.sound.*;
 float x0;
 float x1;
 float t;
 float t0;
 float T; // Periodo
 ArrayList<Explosion> explosions;
+SoundFile file;
 
 PImage bullet;
 
@@ -35,6 +37,7 @@ void setup () {
   bullet = loadImage("bullet.png");
   bullet.resize(25,25);
   explosions = new ArrayList<Explosion>();
+  file = new SoundFile(this, "explosion.mp3");
 }
 
 void draw () {
@@ -70,4 +73,5 @@ void draw () {
 void mousePressed() {
   PVector p = new PVector(mouseX, mouseY);
   explosions.add(new Explosion(p));
+  file.play();
 }
